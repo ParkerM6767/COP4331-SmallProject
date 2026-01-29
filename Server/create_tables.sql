@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS users (
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     username VARCHAR(50) NOT NULL UNIQUE,   -- Unique username for login
-    password_hash VARCHAR(255) NOT NULL     -- Store hashed passwords not original
+    password_hash VARCHAR(255) NOT NULL,     -- Store hashed passwords not original
     token VARCHAR(255),                     -- Authentication token
 );
 
