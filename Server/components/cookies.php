@@ -16,9 +16,14 @@ function createCookie (\PDO $pdo, string $userId) {
     // expiration date must be saved
     // temp table until we make one up
     // need to declare this for my ide
-    $message = $pdo->prepare("INSERT INTO sessions (user_id, token, expires) VALUES (?, ?, ?)");
-    $message->execute([$userId, $token, $expires]);
+    $message = $pdo->prepare("UPDATE users SET token = ? WHERE id = ?");
+    $message->execute([$token, $userId]);
     //
+
+    if ($message->rowCount() <= 0) {
+        echo json_encode(["error" => "No user was found with id" . $userId]);
+        exit;
+    }
 
     setcookie('authentication', $token, $expires, '/', '', false, true);
 }
@@ -35,7 +40,7 @@ function checkCookie (\PDO $pdo, string $token): int {
         exit;
     }
 
-    $message = $pdo->prepare("SELECT * FROM sessions WHERE token = ?");
+    $message = $pdo->prepare("SELECT * FROM users WHERE token = ?");
     $message->execute([$token]);
 
     if ($message->rowCount() === 0) {
