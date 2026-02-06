@@ -29,7 +29,8 @@ include_once("../api/components/validatesession.php");
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item me-2">
-                        <button class="btn btn-danger shadow" aria-current="page" style="border-width: 1px; border-color: #fdfdfd78;">Logout</button>
+                        <button class="btn btn-danger shadow" aria-current="page"
+                            style="border-width: 1px; border-color: #fdfdfd78;">Logout</button>
                     </li>
 
                 </ul>
@@ -39,7 +40,44 @@ include_once("../api/components/validatesession.php");
     <container class="d-flex flex-column w-75 h-75 justify-content-center align-items-center p-4 border">
         <Nav class="w-100 d-flex flex-row mb-2">
             <input class="form-control w-75 me-3" placeholder="Search" />
-            <button class="btn btn-primary w-25">Add Contact</button>
+            <button class="btn btn-primary w-25" data-bs-toggle="modal" data-bs-target="#addContactModal">Add Contact</button>
+
+            <!-- Add Contact Modal -->
+            <div class="modal fade" id="addContactModal" tabindex="-1" aria-labelledby="addContactModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="addContactModalLabel">Add Contact</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="firstName" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="add_firstName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="lastName" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="add_lastName">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phoneNumber" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="add_phoneNumber" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="add_email">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Add Contact</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </Nav>
         <main class="d-flex flex-row w-100 h-100 border">
             <aside class="w-25 d-flex flex-column h-100 border justify-content-between">
