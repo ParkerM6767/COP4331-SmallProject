@@ -17,7 +17,7 @@
 </head>
 
 <body class="d-flex flex-column justify-content-center align-items-center vw-100 vh-100">
-    <nav class="navbar fixed-top navbar-expand-lg vw-100 shadow" style="background-color: rgb(44 103 237);">
+    <nav class="navbar fixed-top navbar-expand-lg vw-100 shadow light-blue">
         <div class="container-fluid">
             <!-- <a class="navbar-brand text-white" href="#" id="userWelcome">Hello,<?php echo $firstName . " " . $lastName; ?>!</a> -->
             <button class="navbar-toggler mb-2" type="button" data-bs-toggle="collapse"
@@ -38,25 +38,37 @@
     <div class="modal" id="exampleModal" tabindex="-1">
         <div class="modal-dialog d-flex justify-content-center align-items-center w-100 h-100">
             <div class="modal-content w-sm-75 w-md-100 vh-50">
-            <div class="modal-header">
-                <h5 class="modal-title">Add Contact</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body d-flex flex-column justify-content-center px-5">
-                <label class="d-flex flex-column">First Name<input type="text"></label>
-                <label class="d-flex flex-column">Last Name <input type="text"></label>
-                <label class="d-flex flex-column">Email<input type="email"></label>
-                <label class="d-flex flex-column">Phone Number<input type="tel"></label>
-                <label class="d-flex flex-column">Work Number<input type="tel"></label>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save Contact</button>
-            </div>
+                <div class="modal-header light-blue">
+                    <h5 class="modal-title">Add Contact</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="Add-Contact-Form" class="modal-body d-flex flex-column justify-content-center px-5 gap-2">
+                    <div class="d-flex flex-column">
+                        <label>First Name <span id="First-Name-Error"></span></label>
+                        <input id="First" type="text"/>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <label>Last Name <span id="Last-Name-Error"></span></label>
+                        <input id="Last" type="text">
+                    </div>
+                    <div class="d-flex flex-column">
+                        <label>Email <span id="Email-Error"></span></label>
+                        <input id="Email" type="email">
+                    </div>
+                    <div class="d-flex flex-column">
+                        <label>Phone Number <span id="Phone-Number-Error"></span></label>
+                        <input id="Phone-Number" type="tel">
+                    </div>
+                    <div class="d-flex flex-column">
+                        <label>Work Number <span id="Work-Number-Error"></span></label>
+                        <input id="Work-Number" type="tel">
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3" id="Submit-Contact" >Save Contact</button>
+                </form>
             </div>
         </div>
     </div>
-    <container class="d-flex flex-column w-75 h-75 justify-content-center align-items-center p-4 border">
+    <container class="d-flex rounded-4 flex-column shadow-sm w-75 h-75 justify-content-center align-items-center p-4 border">
         <Nav class="w-100 d-flex flex-row mb-2">
             <input class="form-control w-75 me-3" placeholder="Search" />
             <button class="btn btn-primary w-25 d-none d-md-block" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Contact</button>
@@ -96,7 +108,7 @@
                 </div>
             </aside>
             <div class="d-none d-md-block w-75 d-flex p-5 flex-column gap-4 border">
-                <h1 class="d-flex flex-row justify-content-center">
+                <h1 class="d-flex flex-row fs-2 justify-content-center">
                     <div class="me-3">Jake</div>
                     <div>Dove</div>
                 </h1>
@@ -106,6 +118,7 @@
             </div>
         </main>
     </container>
+    <script src="/js/contacts.js"></script>
 </body>
 
 </html>
