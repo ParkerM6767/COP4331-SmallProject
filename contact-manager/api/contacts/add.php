@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Requirements
+require '../components/cookies.php';
 use function components\cookies\checkCookie;
 require '../components/db.php';
 header("Content-Type: application/json; charset=utf-8");
