@@ -150,7 +150,7 @@ include_once("../api/components/validatesession.php");
                 <div id="phone-number-div">Phone number: (555)-555-5555</div>
                 <div id="work-number-div">Work Number: (123)-456-7890</div>
                 <div id="email-div">Email: Jdove@example.com</div>
-                <button>delete contact</button>
+                <button id="delete-button">delete contact</button>
             </div>
         </main>
     </container>
