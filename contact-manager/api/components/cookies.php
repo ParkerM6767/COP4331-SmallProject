@@ -6,7 +6,7 @@ namespace components\cookies;
 // I completely forgot about how php scopes work. Just because db is called globally in file doesn't mean the function call has access (they have their own local scope).
 // functions have their own local scope.
 // https://www.php.net/manual/en/function.setcookie.php
-function createCookie (\PDO $pdo, string $userId) {
+function createCookie (\PDO $pdo, int $userId) {
     $token = bin2hex(
         random_bytes(32)
     );
@@ -14,7 +14,7 @@ function createCookie (\PDO $pdo, string $userId) {
     $expires = time() + (60 * 60 * 24);
 
     // expiration date isn't being stored so sessions are basically permanent (in our db)
-    $message = $pdo->prepare("UPDATE users SET token = ? WHERE id = ?");
+    $message = $pdo->prepare("UPDATE users SET token = ? WHERE id = ?;");
     $message->execute([$token, $userId]);
 
     if ($message->rowCount() <= 0) {
