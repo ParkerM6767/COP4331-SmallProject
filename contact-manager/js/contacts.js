@@ -46,6 +46,7 @@ form.addEventListener("submit", (e) => {
         if (phoneRegex.test(phoneNumber.value) === false) {
             phoneNumberError.parentElement.classList.add("text-danger");
             phoneNumberError.textContent = "is invalid";
+            valid = false;
         } else {
         phoneNumberError.parentElement.classList.remove("text-danger");
         phoneNumberError.textContent = "";
@@ -77,23 +78,25 @@ form.addEventListener("submit", (e) => {
 async function addContact() {
     function checkIfNull(input) {
         const value = input.value.trim();
-        return value === "" ? null : value; 
+        return value === "" ? "" : value; 
     };
+    const submission = JSON.stringify({
+                first_name: checkIfNull(firstName),
+                last_name: checkIfNull(lastName),
+                email: checkIfNull(email),
+                personal_phone: checkIfNull(phoneNumber),
+                work_phone: checkIfNull(workNumber)
+    })
     try {
         const response = await fetch("../api/contacts/add.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                first_name: checkIfNull(firstName),
-                last_name: checkIfNull(lastName),
-                email: checkIfNull(email),
-                personal_phone: checkIfNull(phoneNumber),
-                work_phone: checkIfNull(workNumber)
-            })
+            body: submission
         });
         if (!response.ok) {
+            console.log(response);
             throw new Error(`Response status: ${response.status}`);
         }
     } catch (error) {
