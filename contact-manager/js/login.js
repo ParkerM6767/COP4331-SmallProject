@@ -23,6 +23,7 @@ async function onRegister() {
                 window.location.href = "../"
             } else {
                 // Do alert for invalid registration
+                alert("Invalid Registration");
             }
         }
     }
@@ -45,6 +46,7 @@ async function onLogin() {
                 window.location.href = "../contacts";
             } else {
                 // Do alert bootstrap class div to indicate invalid credentials
+                alert("Invalid Username or Password")
             }
         }
     }
