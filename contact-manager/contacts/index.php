@@ -123,9 +123,9 @@ include_once("../api/components/validatesession.php");
             <button class="btn btn-primary w-25 d-none d-md-block" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Contact</button>
             <button class="btn btn-primary w-25 d-block d-md-none fs-5" data-bs-toggle="modal" data-bs-target="#exampleModal">+</button>
         </Nav>
-        <main class="d-flex flex-row w-100 h-100 border overflow-y-scroll">
+        <main class="d-flex flex-row w-100 h-100 border overflow-auto">
             <aside id="aside" class="w-sm-100 w-md-50 w-lg-25 d-flex flex-column h-100 border justify-content-between">
-                <div id="names-list" class="overflow-y-scroll">
+                <div id="names-list" class="overflow-auto">
                     <!-- Contacts populate here -->
                 </div>
                 <div id="pagination-container" class="d-flex w-100 justify-content-evenly p-3">
@@ -135,7 +135,7 @@ include_once("../api/components/validatesession.php");
                     <button id="next-btn" class="btn btn-outline-primary">&gt;</button>
                 </div>
             </aside>
-            <div id="details-view" class="d-none overflow-y-scroll d-md-block w-75 d-flex flex-column border position-relative">
+            <div id="details-view" class="d-none overflow-auto d-md-block w-75 d-flex flex-column border position-relative">
                 <a id="go-back" class="position-absolute top-0 start-0 m-3 text-decoration-none d-none" href="#"><</a>
                 <a id="edit-contact" class="position-absolute top-0 end-0 m-3 text-decoration-none" data-bs-toggle="modal" data-bs-target="#editModal" href="#"></a>
                 <h1 id="name-header" class="d-flex p-5 m-0 h-25 flex-row fs-1 justify-content-center align-items-end">
