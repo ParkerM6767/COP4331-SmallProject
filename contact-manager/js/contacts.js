@@ -277,7 +277,7 @@ function populateContacts(groups) {
 
         Group.forEach((contact) => {
             const element = document.createElement("a");
-            element.className = "w-100 p-2 text-decoration-none overflow-x-scroll";
+            element.className = "w-100 p-2 text-decoration-none overflow-auto";
             element.id = `${contact.id}`
             element.href = "#"
             const arrayPosition = Group.indexOf(contact);
