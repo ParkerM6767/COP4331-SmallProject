@@ -147,13 +147,11 @@ function validateForm(e, first, phone_number, work_number, email, firstNameError
 }
 
 addform.addEventListener("submit", (e) => {
-    validateForm(e, firstName, phoneNumber, workNumber, email, firstNameError, phoneNumberError, workNumberError, emailError).then((ok) => {
-        if (ok) {
+    if (validateForm(e, firstName, phoneNumber, workNumber, email, firstNameError, phoneNumberError, workNumberError, emailError) === true) {
             addContact();
-        } else {
-            return
-        }
-    });
+    } else {
+        return
+    }
 });
 
 function checkIfNull(input) {
@@ -225,6 +223,7 @@ async function searchContact(searchQuery, pagination) {
         if (Object.keys(groups).length > 0) {
             populateContacts(groups)
         } else {
+            document.getElementById("names-list").innerHTML = "";
             document.getElementById("pagination-container").classList.add("d-none");
         }
     } catch (error) {
