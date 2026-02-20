@@ -23,7 +23,10 @@ async function onRegister() {
                 window.location.href = "../"
             } else {
                 // Do alert for invalid registration
-                alert("Invalid Registration");
+                document.getElementById("loginResult").innerHTML = `
+                    <div role="alert" class="alert alert-danger text-center mb-5">
+                        Invalid Registration: Please try again with different username or email.
+                    </div>`;
             }
         }
     }
@@ -46,7 +49,10 @@ async function onLogin() {
                 window.location.href = "../contacts";
             } else {
                 // Do alert bootstrap class div to indicate invalid credentials
-                alert("Invalid Username or Password")
+                document.getElementById("loginResult").innerHTML = `
+                    <div role="alert" class="alert alert-danger text-center mb-5">
+                        Login Failed: Invalid Username/Password.
+                    </div>`;
             }
         }
     }
