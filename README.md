@@ -46,3 +46,8 @@ This project was developed with assistance from generative AI tools:
 - **Use**: Generated the specified format for the README.md while providing reasoning for changes to sentence format if needed. Sections were edited and the "Local Setup" section was written manually to ensure its quality. 
 
 No code, commands, or information was generated. The format itself is the only thing the model generated and that was edited as well.
+
+- **Grouping Contacts function**: Generated a function used to group contacts by the first name using the prompt -> 
+I need a js function to store contacts into seperate groups based on the first letter of their first name. For example Donald and Dwight fall into group D while Jonathan goes under group J
+
+Lines 217 to 222 of contacts.js was derived from ChatGPT's response
